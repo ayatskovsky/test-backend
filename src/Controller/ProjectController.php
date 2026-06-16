@@ -71,13 +71,13 @@ class ProjectController
      */
     public function projectCreateTaskAction(Request $request)
     {
-        $project = $this->storage->getProjectById($request->get('id'));
-        if (!$project) {
-            return new JsonResponse(['error' => 'Not found']);
-        }
+		$project = $this->storage->getProjectById($request->get('id'));
+		if (!$project) {
+			return new JsonResponse(['error' => 'Not found']);
+		}
 
-        return new JsonResponse(
-            $this->storage->createTask($_REQUEST, $project->getId())
-        );
+		return new JsonResponse(
+			$this->storage->createTask($_REQUEST, $project->getId())
+		);
     }
 }
